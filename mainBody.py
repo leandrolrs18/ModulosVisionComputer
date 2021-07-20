@@ -5,8 +5,8 @@ import bodymin as bm
 
 pTime= 0 
 cTime = 0
-cap = cv2.VideoCapture('PoseVideos/1.mp4')
-#cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture('PoseVideos/1.mp4')
+cap = cv2.VideoCapture(0)
 detector = bm.poseDetector()
 while True:
     sucess, img = cap.read()
