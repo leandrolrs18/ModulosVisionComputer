@@ -1,18 +1,19 @@
 import cv2
 import mediapipe as mp
 import time 
-import handsmin as hm
+import bodymin as bm 
 
 pTime= 0 
 cTime = 0
-cap = cv2.VideoCapture(0)
-detector = hm.handDetector()
+cap = cv2.VideoCapture('PoseVideos/1.mp4')
+#cap = cv2.VideoCapture(0)
+detector = bm.poseDetector()
 while True:
     sucess, img = cap.read()
-    img = detector.findHands(img)
-    lmList = detector.findPosition(img)
+    img = detector.findPose(img)
+    lmList = detector.getPosition(img, draw=True)
     if len(lmList) != 0:                                                    #só mostra se mão aparecer na imagem 
-        print(lmList[4])
+        print(lmList[14])
 
     cTime = time.time()
     fps = 1/ (cTime- pTime)
